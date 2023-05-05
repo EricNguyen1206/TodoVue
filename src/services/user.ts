@@ -1,14 +1,4 @@
-import {
-  addDoc,
-  collection,
-  doc,
-  deleteDoc,
-  getDocs,
-  query,
-  setDoc,
-  where,
-  getDoc
-} from 'firebase/firestore'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
 
 import db from '@/utils/firebase'
 import type { User } from '@/declaration'

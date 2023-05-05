@@ -74,12 +74,16 @@ const filteredTodoList = computed(() => {
 
         // sort todo by name A-Z
         case ENUM_SORT.NameASC:
-          result.sort((a, b) => (a.name > b.name ? -1 : a.name < b.name ? 1 : 0))
+          result.sort((a, b) =>
+            a.name > b.name ? -1 : a.name < b.name ? 1 : 0
+          )
           break
 
         // sort todo by name Z-A
         case ENUM_SORT.NameDESC:
-          result.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+          result.sort((a, b) =>
+            a.name > b.name ? 1 : a.name < b.name ? -1 : 0
+          )
           break
       }
     }
@@ -211,7 +215,9 @@ const handleDeleteTodo = (todoId: number) => {
               </td>
 
               <!-- display todo priority (level) -->
-              <td class="px-6 py-4 text-center border-b border-gray-200 whitespace-nowrap">
+              <td
+                class="px-6 py-4 text-center border-b border-gray-200 whitespace-nowrap"
+              >
                 <base-select
                   v-if="editingTodoId !== null && editingTodoId === todo.id"
                   class-name="w-[80px] h-8 py-1 px-2 text-xs border rounded"

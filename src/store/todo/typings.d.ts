@@ -1,4 +1,4 @@
-import type { Todo } from '@/declaration'
+import type { Todo, TypeLevel } from '@/declaration'
 import type { Model } from '../typings'
 
 export interface TodoState extends Model<Todo[]> {}

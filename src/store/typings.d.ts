@@ -1,4 +1,5 @@
-import { Store } from 'vuex'
+import { Commit, Dispatch } from 'vuex'
+
 import type { TodoState } from './todo/typings'
 import type { UserState } from './user/typings'
 interface RootState {

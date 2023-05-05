@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
@@ -53,6 +54,6 @@
     }
   },
   "lint-staged": {
-    "*.{ts,vue}": "eslint --fix"
+    "*.{ts,vue}": "yarn run lint"
   }
 }

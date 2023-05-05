@@ -36,7 +36,8 @@ const handleLogout = (e: Event) => {
 <template>
   <main class="container sm:max-w-[1183px] max-w-full mx-auto bg-slate-300 p-4">
     <h1 class="w-full text-black text-4xl pb-[18px] border-b border-gray-300">
-      Project 01 - ToDo List <span class="text-gray-500 text-2xl ml-2">VueJS</span>
+      Project 01 - ToDo List
+      <span class="text-gray-500 text-2xl ml-2">VueJS</span>
       <base-button
         @click="handleLogout"
         class-name="float-none sm:float-right mt-4 cursor-pointer border border-primary text-primary hover:text-white hover:bg-primary"

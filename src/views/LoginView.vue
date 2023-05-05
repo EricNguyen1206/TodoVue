@@ -38,7 +38,9 @@ const handleSubmit = (e: Event) => {
 
       <form class="mt-6">
         <div>
-          <label for="username" class="block text-sm text-gray-800">Username</label>
+          <label for="username" class="block text-sm text-gray-800"
+            >Username</label
+          >
           <base-input
             v-model="username"
             class-name="block w-full px-4 py-2 mt-2 text-primary bg-white border rounded-md focus:border-primary-dark focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
@@ -47,14 +49,18 @@ const handleSubmit = (e: Event) => {
         </div>
         <div class="mt-4">
           <div>
-            <label for="password" class="block text-sm text-gray-800">Password</label>
+            <label for="password" class="block text-sm text-gray-800"
+              >Password</label
+            >
             <input
               type="password"
               v-model="password"
               class="block w-full px-4 py-2 mt-2 text-primary bg-white border rounded-md focus:border-primary-dark focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <a href="#" class="text-xs text-gray-600 hover:underline">Forget Password?</a>
+          <a href="#" class="text-xs text-gray-600 hover:underline"
+            >Forget Password?</a
+          >
           <div class="mt-6">
             <base-button
               @click="handleSubmit"
@@ -67,7 +73,10 @@ const handleSubmit = (e: Event) => {
       </form>
       <p class="mt-8 text-xs font-light text-center text-gray-700">
         Don't have an account?
-        <router-link to="/register" class="font-medium text-primary-dark hover:underline">
+        <router-link
+          to="/register"
+          class="font-medium text-primary-dark hover:underline"
+        >
           Sign up
         </router-link>
       </p>
