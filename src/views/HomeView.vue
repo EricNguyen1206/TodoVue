@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref, watch, computed, onMounted } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 // import { useStore } from 'vuex'
 import { debounce } from 'lodash'
@@ -46,7 +46,7 @@ watch(form, (newValue, _) => {
  * @param {string} value - todo content
  */
 const addTodo = (value: string) => {
-  if (typeof value === 'string') {
+  if (typeof value === 'string' && value.trim() !== '') {
     store.dispatch({
       type: 'createTodoAction',
       payload: {
