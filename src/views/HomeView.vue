@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useStore } from 'vuex'
-// import { useStore } from 'vuex'
 import { debounce } from 'lodash'
 
 import BaseButton from '@/components/BaseButton.vue'
@@ -9,10 +8,9 @@ import BaseInput from '@/components/BaseInput.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import BaseTag from '@/components/BaseTag.vue'
 import ComponentTable from '@/components/ComponentTable.vue'
-import { adapterEnumToOptions } from '../utils/adapterEnumToOptions'
+import {adapterEnumToOptions} from '@/modules/core/utils/adapterEnumToOptions'
 
-import { ENUM_LEVEL, ENUM_SORT } from '../constant'
-import type { TypeLevel, TypeSort } from '../declaration'
+import { ENUM_LEVEL, ENUM_SORT, TypeLevel, TypeSort } from '@/modules/core/typings'
 
 const store = useStore()
 const dispatch = store.dispatch

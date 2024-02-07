@@ -10,11 +10,12 @@ import BaseButton from './BaseButton.vue'
 import BaseInput from './BaseInput.vue'
 import BaseSelect from './BaseSelect.vue'
 import BaseTag from './BaseTag.vue'
-import { adapterEnumToOptions } from '../utils/adapterEnumToOptions'
-import { searchTodoByName } from '../utils/searchTodoByName'
 
-import { ENUM_LEVEL, ENUM_SORT } from '../constant'
-import type { Todo, TypeLevel, TypeSort } from '../declaration'
+import { ENUM_LEVEL, ENUM_SORT } from '@/modules/core/typings'
+import { TypeLevel, TypeSort } from '@/modules/core/typings'
+import { Todo } from '@/modules/todo/entities'
+import {adapterEnumToOptions} from '@/modules/core/utils/adapterEnumToOptions'
+import {searchTodoByName} from '@/modules/core/utils/searchTodoByName'
 
 const store = useStore()
 const dispatch = store.dispatch
@@ -276,3 +277,4 @@ const handleDeleteTodo = (todoId: number) => {
     </div>
   </div>
 </template>
+../modules/core/utils/adapterEnumToOptions../modules/core/utils/searchTodoByName../modules/core/constant

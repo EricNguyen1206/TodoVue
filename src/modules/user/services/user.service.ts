@@ -1,7 +1,7 @@
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 
-import db from '@/utils/firebase'
-import type { User } from '@/declaration'
+import db from '@/modules/core/utils/firebase'
+import { User } from '../entities'
 
 /**
  *
@@ -22,6 +22,7 @@ export const getUserData = async (username: string): Promise<User> => {
       throw new Error('401')
     }
   } catch (e: any) {
+    console.log('e', e)
     throw new Error(e)
   }
 }

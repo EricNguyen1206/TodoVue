@@ -4,7 +4,7 @@ import 'vue-toast-notification/dist/theme-sugar.css'
 import App from './App.vue'
 import './style.css'
 import router from './router'
-import store from './store'
+import store from './modules/core/store'
 
 const app = createApp(App)
 app.use(router)

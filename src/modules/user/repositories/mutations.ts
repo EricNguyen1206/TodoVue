@@ -1,4 +1,4 @@
-import type { User } from '@/declaration'
+import { User } from '../entities'
 import type { UserState } from './typings'
 
 export const initialState = {

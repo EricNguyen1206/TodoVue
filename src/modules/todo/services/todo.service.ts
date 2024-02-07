@@ -1,5 +1,3 @@
-import type { Todo } from '@/declaration'
-import db from '@/utils/firebase'
 import {
   addDoc,
   collection,
@@ -11,11 +9,14 @@ import {
   where
 } from 'firebase/firestore'
 
+import db from '@/modules/core/utils/firebase'
+import { Todo } from '../entities'
+
 /**
  * get todo list data from firebase
  * @return {Promise<Todo[]>}
  */
-export const getAllTodoData = async (username?: string): Promise<Todo[]> => {
+const getAllTodoData = async (username?: string): Promise<Todo[]> => {
   try {
     const q = query(collection(db, 'todos'))
     const snapshot = await getDocs(q)
@@ -36,7 +37,7 @@ export const getAllTodoData = async (username?: string): Promise<Todo[]> => {
  * add document todo into collection todos in firestore
  * @param {Todo} todo
  */
-export const postNewTodo = async (todo: Todo) => {
+const postNewTodo = async (todo: Todo) => {
   try {
     const docref = await addDoc(collection(db, 'todos'), todo)
     return docref
@@ -49,12 +50,16 @@ export const postNewTodo = async (todo: Todo) => {
  * find todo by id and update to firestore
  * @param {Todo} todo
  */
-export const putTodo = async (todo: Todo) => {
+const putTodo = async (todo: Todo) => {
   console.log('todo', todo)
   try {
     const todosRef = collection(db, 'todos')
     // Create a query against the collection.
-    const q = query(todosRef, where('id', '==', todo.id), where('user', '==', todo.user))
+    const q = query(
+      todosRef,
+      where('id', '==', todo.id),
+      where('user', '==', todo.user)
+    )
     const snapshot = await getDocs(q)
     console.log('snapshot.docs[0]', snapshot.docs[0].data())
     await setDoc(doc(db, 'todos', snapshot.docs[0].id), todo)
@@ -68,14 +73,25 @@ export const putTodo = async (todo: Todo) => {
  * @param {number} id
  * @param {string} username
  */
-export const deleteTodoById = async (id: number, username: string) => {
+const deleteTodoById = async (id: number, username: string) => {
   try {
     const todosRef = collection(db, 'todos')
     // Create a query against the collection.
-    const q = query(todosRef, where('id', '==', id), where('user', '==', username))
+    const q = query(
+      todosRef,
+      where('id', '==', id),
+      where('user', '==', username)
+    )
     const snapshot = await getDocs(q)
     await deleteDoc(doc(db, 'todos', snapshot.docs[0].id))
   } catch (e: any) {
     throw new Error(e)
   }
+}
+
+export const todoServices = {
+  getAllTodoData,
+  postNewTodo,
+  putTodo,
+  deleteTodoById
 }

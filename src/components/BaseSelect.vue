@@ -5,7 +5,8 @@ Props {String} className to passing addiontnal class for style with tailwind
 Props {String} default to display the default option (diable) 
 -->
 <script setup lang="ts">
-import type { Option } from '../declaration'
+import { Option } from '@/modules/core/typings'
+
 const emit = defineEmits(['change'])
 const props = defineProps({
   options: {

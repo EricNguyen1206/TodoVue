@@ -4,8 +4,8 @@ import { useStore } from 'vuex'
 import { RouterView } from 'vue-router'
 
 import BaseButton from './components/BaseButton.vue'
-import { initialState } from './store/user/mutations'
 import router from './router'
+import { initialState } from './modules/user/repositories/mutations'
 
 const store = useStore()
 const dispatch = store.dispatch

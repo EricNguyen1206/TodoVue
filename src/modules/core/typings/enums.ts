@@ -10,3 +10,6 @@ export enum ENUM_SORT {
   LevelASC = 'Level ASC',
   LevelDESC = 'Level DESC'
 }
+
+export type TypeLevel = `${ENUM_LEVEL}`
+export type TypeSort = `${ENUM_SORT}`

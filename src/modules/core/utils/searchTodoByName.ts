@@ -1,4 +1,4 @@
-import type { Todo } from '@/declaration'
+import { Todo } from '@/modules/todo/entities'
 
 /**
  * Search engine function

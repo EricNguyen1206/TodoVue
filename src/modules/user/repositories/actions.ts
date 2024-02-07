@@ -1,9 +1,14 @@
-import router from '@/router'
-import type { AppAction, AppContext } from '../typings'
-import { getUserData, postNewUser, updateUser } from '@/services/user'
 import { useToast } from 'vue-toast-notification'
+
+import router from '@/router'
+import {
+  getUserData,
+  postNewUser,
+  updateUser
+} from '@/modules/user/services/user.service'
 import type { UserState } from './typings'
-import type { User } from '@/declaration'
+import type { AppAction, AppContext } from '@/modules/core/typings'
+import { User } from '../entities'
 
 export default {
   /**
@@ -14,7 +19,9 @@ export default {
     { payload }: AppAction<{ username: string; password: string }>
   ) {
     try {
+      console.log('TEST 1')
       const user = await getUserData(payload.username)
+      console.log('TEST user', user)
       const $toast = useToast()
       if (user.password === payload.password) {
         $toast.success(`Welcome back ${user.username}`)
@@ -25,10 +32,12 @@ export default {
         $toast.error('Wrong password!')
       }
     } catch (e: any) {
+      const $toast = useToast()
       if (e.message === 'Error: 401') {
-        const $toast = useToast()
         $toast.error('Login failed!\nUser not found!')
+        return
       }
+      console.error(e)
     }
   },
   /**
