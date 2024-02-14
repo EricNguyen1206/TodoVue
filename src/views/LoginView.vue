@@ -8,7 +8,6 @@ import BaseButton from '@/components/BaseButton.vue'
 import BaseInput from '@/components/BaseInput.vue'
 
 const store = useStore()
-const dispatch = store.dispatch
 const username = ref<string>('')
 const password = ref<string>('')
 
@@ -18,7 +17,7 @@ const handleSubmit = (e: Event) => {
     const $toast = useToast()
     $toast.warning('Username and password are required!')
   } else {
-    dispatch({
+    store.dispatch({
       type: 'loginAction',
       payload: {
         username: username.value,
@@ -83,5 +82,3 @@ const handleSubmit = (e: Event) => {
     </div>
   </div>
 </template>
-
-<style lang=""></style>

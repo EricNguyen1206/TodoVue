@@ -10,7 +10,8 @@ import BaseTag from '@/components/BaseTag.vue'
 import ComponentTable from '@/components/ComponentTable.vue'
 import {adapterEnumToOptions} from '@/modules/core/utils/adapterEnumToOptions'
 
-import { ENUM_LEVEL, ENUM_SORT, TypeLevel, TypeSort } from '@/modules/core/typings'
+import { ENUM_LEVEL, ENUM_SORT } from '@/modules/core/typings'
+import type { TypeLevel, TypeSort } from '@/modules/core/typings'
 
 const store = useStore()
 const dispatch = store.dispatch
